@@ -1,3 +1,5 @@
 # C-programming
 
-## Hi
+# developer: Chanhyun KIM (Stephano)
+
+## Data Structure 

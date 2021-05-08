@@ -1,5 +1,6 @@
 # C-programming
 
-# developer: Chanhyun KIM (Stephano)
+## Developer: Chanhyun KIM (Stephano)
+## Start Date : 21.05.08
 
-## Data Structure 
+## Develop Subject: Data Structure 

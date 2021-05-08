@@ -7,8 +7,12 @@
 #include "Node.h"
 
 
+tPNODE* madeNode();
 void AddNode(tPNODE** pAdd);
 void deleteAllNode(tPNODE* pHead);
-tPNODE* madeNode();
+tPNODE* reverseNode(tPNODE** pHead);
+void printNodeAddress(tPNODE* pHead);
+
+
 
 

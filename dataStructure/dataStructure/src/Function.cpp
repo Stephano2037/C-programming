@@ -53,3 +53,40 @@ void deleteAllNode(tPNODE* pHead)
 	free(pTemp);
 
 }
+
+tPNODE* reverseNode(tPNODE ** pHead)
+{
+	//need 3 temp node for reverseNode
+
+	tPNODE* pTemp1= nullptr; //point the header
+	tPNODE* pTemp2= nullptr; //point the ptemp1
+	tPNODE* pTemp3= nullptr; //point the ptemp2
+
+	pTemp1 = *pHead;
+
+	
+	while (pTemp1 != nullptr)
+	{
+
+		pTemp3 = pTemp2;
+		pTemp2 = pTemp1;
+		pTemp1 = pTemp1->pNext;
+		
+		pTemp2->pNext = pTemp3;
+	}
+
+	*pHead = pTemp2;
+
+	return *pHead;
+}
+
+
+void printNodeAddress(tPNODE * pHead)
+{
+	while (pHead != nullptr)
+	{
+		printf("%0#x -> ", pHead);
+		pHead = pHead->pNext;
+	}//end of while
+	printf("\r\n");
+}

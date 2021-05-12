@@ -14,5 +14,12 @@ tPNODE* reverseNode(tPNODE** pHead);
 void printNodeAddress(tPNODE* pHead);
 
 
+/*
+Poly Add
+*/
 
 
+tLinkedList* createLinkedListHead();
+void addNodeinLastLocation(tLinkedList* ,int,int);
+tLinkedList* addLinkedListwithOtherPoly(tLinkedList* a, tLinkedList* b);
+void printPolyAddResult(tLinkedList* pResult);

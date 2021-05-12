@@ -7,4 +7,19 @@ typedef struct NODE
 	NODE* pNext;
 
 }tPNODE;
+
+
+typedef struct polyNode
+{
+	int iNumber;
+	int iExpo;
+	polyNode* pNextNode;
+}tPolyNode;
+
+
+typedef struct linkedList
+{
+	tPolyNode* pHead;
+}tLinkedList;
+
 #pragma pack(pop)

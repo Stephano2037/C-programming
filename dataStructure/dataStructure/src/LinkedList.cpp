@@ -70,11 +70,15 @@ int main()
 	LL_Result = createLinkedListHead();//(tLinkedList*)malloc(sizeof(tLinkedList));
 
 	
-	//add node 
-	addNodeinLastLocation(LL_A, 5, 4); //const number, expo
-	addNodeinLastLocation(LL_A, 5, 3);
+	//add node (const number, expo)
+	addNodeinLastLocation(LL_A, 5, 4); 
+	addNodeinLastLocation(LL_A, 3, 3);
+	addNodeinLastLocation(LL_A, 15, 1);
 	addNodeinLastLocation(LL_B, 10, 4);
-	addNodeinLastLocation(LL_B, 0, 3);
+	addNodeinLastLocation(LL_B, 111, 3);
+	addNodeinLastLocation(LL_B, 10, 2);
+	addNodeinLastLocation(LL_B, 10, 0);
+	//addNodeinLastLocation(LL_B, 0, 3);
 
 	/*addNodeinLastLocation(LL_B, 0, 2);
 	addNodeinLastLocation(LL_B, 0, 1);*/

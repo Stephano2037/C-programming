@@ -142,7 +142,7 @@ tLinkedList* addLinkedListwithOtherPoly(tLinkedList * a, tLinkedList * b)
 
 	while(pA && pB)
 	{ 
-		if (pA->iExpo == pA->iExpo)
+		if (pA->iExpo == pB->iExpo)
 		{
 			//pResult->pHead->iExpo = pA->iExpo;
 			//pResult->pHead->iNumber = pA->iNumber + pB->iNumber;
@@ -173,8 +173,24 @@ tLinkedList* addLinkedListwithOtherPoly(tLinkedList * a, tLinkedList * b)
 			
 
 		}//end of else
-	}
+	}//end of while
 	
+	//Uppon the while, doesn't concernd about the NOT SAME expo
+	//so insert remain nodes in pResult List
+
+	while (pA != nullptr)
+	{
+		addNodeinLastLocation(pResult, pA->iNumber, pA->iExpo);
+		pA = pA->pNextNode;
+
+	}
+
+	while (pB != nullptr)
+	{
+		addNodeinLastLocation(pResult, pB->iNumber, pB->iExpo);
+		pB = pB->pNextNode;
+
+	}
 	
 	return pResult;
 }//end of addLinkedListwithOtherPoly Function

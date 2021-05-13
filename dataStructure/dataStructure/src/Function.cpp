@@ -131,7 +131,7 @@ void addNodeinLastLocation(tLinkedList* pList ,int iConst,int iExpo)
 
 tLinkedList* addLinkedListwithOtherPoly(tLinkedList * a, tLinkedList * b)
 {
-	
+	//test commit 
 	tPolyNode* pA = a->pHead;
 	tPolyNode* pB = b->pHead;
 

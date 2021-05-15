@@ -2,7 +2,7 @@
 
 
 ## Compiler - Visual Stduio 2017
-Using github with visual studio (Github Extension for Visual Studio)
+Using github with visual studio ( Tool name: Github Extension for Visual Studio)
 
 
 ```

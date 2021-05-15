@@ -2,24 +2,30 @@
 #include <iostream>
 #include "Function.h"
 
+
+
 using namespace std;
 
 /*
 Author: Chanhyun KIM
 
-First update date : 21.05.08 
+First project date : 21.05.08 
 
 - Lay the ground work one more time, for my programming skills
 - linked list
 
 
-Second update date : 21.05.12
+Second project date : 21.05.12
 
 - polynomial add function with linked list 
 
+
+Third project date : 21.05.15
+
+- Stack 
+-- Array Version 
+
 */
-
-
 
 
 
@@ -61,7 +67,11 @@ int main()
 
 	*/
 
-	tLinkedList* LL_A=nullptr;
+
+	/* 
+	21.05.12
+	Polynomial Pointer Code
+		tLinkedList* LL_A=nullptr;
 	tLinkedList* LL_B = nullptr;
 	tLinkedList* LL_Result = nullptr;
 
@@ -78,10 +88,7 @@ int main()
 	addNodeinLastLocation(LL_B, 111, 3);
 	addNodeinLastLocation(LL_B, 10, 2);
 	addNodeinLastLocation(LL_B, 10, 0);
-	//addNodeinLastLocation(LL_B, 0, 3);
 
-	/*addNodeinLastLocation(LL_B, 0, 2);
-	addNodeinLastLocation(LL_B, 0, 1);*/
 
 	LL_Result = addLinkedListwithOtherPoly(LL_A,LL_B);
 
@@ -104,6 +111,42 @@ int main()
 	{
 		free(LL_Result);
 	}
+	
+	*/
+
+
+	/*
+	21.05.15 Stack with Array
+	*/
+
+	//Int type Stack  
+	int iStack[STACKSIZE] = { 0, };
+
+
+	//top index of Stack
+	int iIndexTop = -1;
+
+
+	//pushElement(iStack, &iIndexTop,1);
+	//pushElement(iStack, &iIndexTop, 2);
+	//pushElement(iStack, &iIndexTop, 3);
+
+
+	for (int i = 0; i < (STACKSIZE/2); ++i)
+	{
+		pushElement(iStack, &iIndexTop, i*2);
+	}
+
+
+	deleteElementInStack(iStack,&iIndexTop); // index 0~49,total 50 number , index 49 will be disapperad
+
+	int iValue = popElement(iStack,&iIndexTop); //96 will be poped up
+
+	printf("popValue: %d\r\n", iValue);
+
+	printStack(iStack,&iIndexTop); //94~0 , total 48 things will be printed
+
+
 	return 0;
 }
 

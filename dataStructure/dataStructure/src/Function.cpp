@@ -2,6 +2,7 @@
 #include "Function.h"
 
 
+
 tPNODE* madeNode()
 {
 	
@@ -202,6 +203,68 @@ void printPolyAddResult(tLinkedList* pResult)
 		printf("%d x^%d +",pResult->pHead->iNumber, pResult->pHead->iExpo);
 		pResult->pHead = pResult->pHead->pNextNode;
 	}//end of while
-}//end off printPOlyAddResult
+}
 
 
+
+
+
+/*
+Stack Function with Array
+
+*/
+int popElement(int * pStack, int * pIndexTop)
+{
+
+	if (*pIndexTop < 0)
+	{
+		*pIndexTop = -1;
+		return -1;
+	}
+
+	return pStack[(*pIndexTop)--];
+}
+void pushElement(int * pStack, int * pIndexTop, int iValue)
+{
+	(*pIndexTop) += 1;
+	if (*pIndexTop == STACKSIZE)
+	{
+		(*pIndexTop) -= 1;
+		printf("Stack is Full!!\r\n");
+		return;
+	}
+
+	pStack[(*pIndexTop)] = iValue;
+
+	
+
+}//end of pushElement
+
+void printStack(int * pStack,int* pTop)
+{
+
+	for (volatile int i = (*pTop); i >=0; --i)
+	{
+		printf("[%d], %d\r\n",i,pStack[i]);
+	}//end of for
+
+	
+
+}
+void deleteElementInStack(int * pStack, int * pIndexTop)
+{
+
+	if (*pIndexTop < 0)
+	{
+		*pIndexTop = -1;
+		return;
+	}
+
+	*pIndexTop -= 1;
+}
+//end of printStack
+
+//end off printPOlyAddResult
+
+
+//****************************************

@@ -1,9 +1,16 @@
 # C-programming
+
+''
+Compiler - Visual Stduio 2017
+- using github with visual studio (Github Extension for Visual Studio)
+''
+
 ```
 Personal project
 1. Developer: Chanhyun KIM (Stephano)
 2. Start Date : 21.05.08
 3. Develop Subject: Data Structure 
+
 ```
 
 

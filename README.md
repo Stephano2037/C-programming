@@ -1,9 +1,9 @@
 # C-programming
 
-''
-Compiler - Visual Stduio 2017
-- using github with visual studio (Github Extension for Visual Studio)
-''
+
+## Compiler - Visual Stduio 2017
+Using github with visual studio (Github Extension for Visual Studio)
+
 
 ```
 Personal project

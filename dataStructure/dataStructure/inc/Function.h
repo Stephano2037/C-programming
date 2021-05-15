@@ -39,3 +39,14 @@ void printStack(int* pStack,int* pIndexTop);
 
 //just delete value not return any value in stack
 void deleteElementInStack(int* pStack, int* pIndexTop);
+
+//***************************************************************
+
+
+//*************** 21.05.15 Stack with Pointer*************
+tStackNode* addStackPointerNode(tStackNode * pStackNode, int iValue);
+void popUpStackPointerNode(tStackNode ** pStackNode);
+void deleteStackPointerNode(tStackNode ** pStackNode);
+
+
+//************************************************

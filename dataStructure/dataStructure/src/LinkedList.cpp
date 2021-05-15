@@ -9,7 +9,7 @@ using namespace std;
 /*
 Author: Chanhyun KIM
 
-First project date : 21.05.08 
+First project date : 21.05.08  (yy.mm.dd)
 
 - Lay the ground work one more time, for my programming skills
 - linked list
@@ -24,6 +24,10 @@ Third project date : 21.05.15
 
 - Stack 
 -- Array Version 
+-- Concept map will be add when pointer Stack project done
+
+-- Pointer Version 21.05.15 
+
 
 */
 
@@ -50,7 +54,7 @@ int main()
 	cout << "********************Original***********************" << endl;
 
 	printNodeAddress(pHead);
-	
+
 	cout << "********************Reverse***********************" << endl;
 
 	pHead =reverseNode(&pHead);
@@ -68,7 +72,7 @@ int main()
 	*/
 
 
-	/* 
+	/*
 	21.05.12
 	Polynomial Pointer Code
 		tLinkedList* LL_A=nullptr;
@@ -79,9 +83,9 @@ int main()
 	LL_B = createLinkedListHead();
 	LL_Result = createLinkedListHead();//(tLinkedList*)malloc(sizeof(tLinkedList));
 
-	
+
 	//add node (const number, expo)
-	addNodeinLastLocation(LL_A, 5, 4); 
+	addNodeinLastLocation(LL_A, 5, 4);
 	addNodeinLastLocation(LL_A, 3, 3);
 	addNodeinLastLocation(LL_A, 15, 1);
 	addNodeinLastLocation(LL_B, 10, 4);
@@ -96,7 +100,7 @@ int main()
 	//print add result of polynomial
 
 	printPolyAddResult(LL_Result);
-	
+
 
 	if (LL_A)
 	{
@@ -111,15 +115,14 @@ int main()
 	{
 		free(LL_Result);
 	}
-	
+
 	*/
 
 
 	/*
 	21.05.15 Stack with Array
-	*/
 
-	//Int type Stack  
+	//Int type Stack
 	int iStack[STACKSIZE] = { 0, };
 
 
@@ -134,7 +137,7 @@ int main()
 
 	for (int i = 0; i < (STACKSIZE/2); ++i)
 	{
-		pushElement(iStack, &iIndexTop, i*2);
+	pushElement(iStack, &iIndexTop, i*2);
 	}
 
 
@@ -145,6 +148,28 @@ int main()
 	printf("popValue: %d\r\n", iValue);
 
 	printStack(iStack,&iIndexTop); //94~0 , total 48 things will be printed
+
+	*/
+
+	/*
+	Stack with Pointer
+	*/
+
+
+
+	tStackNode * pTopIndex =nullptr;
+	//tStackNode * pStackNode = nullptr;
+
+
+	pTopIndex = addStackPointerNode(pTopIndex,1);
+	pTopIndex = addStackPointerNode(pTopIndex, 2);
+	pTopIndex = addStackPointerNode(pTopIndex, 3);
+
+	deleteStackPointerNode(&pTopIndex);
+	popUpStackPointerNode(&pTopIndex);
+
+	if (pTopIndex)
+		free(pTopIndex);
 
 
 	return 0;

@@ -9,6 +9,7 @@ typedef struct NODE
 }tPNODE;
 
 
+/************ Polynomial Struct type********************/
 typedef struct polyNode
 {
 	int iNumber;
@@ -21,5 +22,18 @@ typedef struct linkedList
 {
 	tPolyNode* pHead;
 }tLinkedList;
+
+/************   ********************/
+
+
+/************ Stack Struct type********************/
+typedef struct stackNode
+{
+	int iValue;
+	stackNode* pNextNode;
+	//stackNode* pPreviousNode;
+}tStackNode;
+
+
 
 #pragma pack(pop)

@@ -268,3 +268,116 @@ void deleteElementInStack(int * pStack, int * pIndexTop)
 
 
 //****************************************
+
+//index of stack( in this case stacknode* ) is increase
+tStackNode* addStackPointerNode(tStackNode * pStackNode , int iValue)
+{
+
+	if (pStackNode == nullptr)
+	{
+		pStackNode = (tStackNode*)malloc(sizeof(tStackNode));
+	    
+		pStackNode->iValue = iValue;
+		pStackNode->pNextNode = nullptr;
+	}
+	else
+	{
+		tStackNode* pHead = pStackNode;
+
+		tStackNode* pTempNode = (tStackNode*)malloc(sizeof(tStackNode));
+
+		pTempNode->iValue = iValue;
+		pTempNode->pNextNode = nullptr;
+		while (pHead->pNextNode!= nullptr)
+		{
+			pHead = pHead->pNextNode;
+		}
+
+		pHead->pNextNode = pTempNode;
+			
+		
+	}//end of else
+	
+
+	return pStackNode;
+
+}
+void popUpStackPointerNode(tStackNode ** pStackNode)
+{
+	tStackNode* pHead = *pStackNode;
+	tStackNode* pPreviousNode = pHead;
+
+	if (pHead == nullptr)
+	{
+		printf("There is no node in the stack \r\n");
+		return;
+	}
+
+	while (pHead->pNextNode != nullptr)
+	{
+		pHead = pHead->pNextNode;
+	}
+
+	printf("pop up value: %d\r\n",pHead->iValue);
+
+	while (pPreviousNode->pNextNode != pHead && pPreviousNode->pNextNode!=nullptr)
+	{
+		pPreviousNode = pPreviousNode->pNextNode;
+	}
+	
+	if (pPreviousNode->pNextNode)
+		free(pPreviousNode->pNextNode);
+
+
+	pPreviousNode->pNextNode = nullptr;
+
+
+
+}//end of popupStackPointerNode
+
+
+void deleteStackPointerNode(tStackNode ** pStackNode)
+{
+	tStackNode* pHead = *pStackNode;
+	tStackNode* pPreviousNode = pHead;
+
+	if (pHead == nullptr)
+	{
+		printf("There is no node in the stack \r\n");
+		return;
+	}
+
+	while (pHead->pNextNode != nullptr)
+	{
+		pHead = pHead->pNextNode;
+	}
+
+	//printf("pop up value: %d\r\n", pHead->iValue);
+
+	while (pPreviousNode->pNextNode != pHead && pPreviousNode->pNextNode != nullptr)
+	{
+		pPreviousNode = pPreviousNode->pNextNode;
+	}
+	if (pPreviousNode->pNextNode)
+		free(pPreviousNode->pNextNode);
+
+	pPreviousNode->pNextNode = nullptr;
+	//*pStackNode = pPreviousNode;
+}
+//end of addStackPointerNode
+
+
+
+
+
+void printStackwithPointer(tStackNode * pStack, tStackNode* pTop)
+{
+	volatile int i = 0;
+	for (; pStack->pNextNode!=nullptr; pStack=pStack->pNextNode)
+	{
+		printf("[%d], %d\r\n", i+=1,pStack->iValue);
+	}//end of for
+
+
+
+}

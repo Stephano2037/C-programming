@@ -29,6 +29,10 @@ Third project date : 21.05.15
 -- Pointer Version 21.05.15 
 
 
+Fourth project date: 21.05.18
+- Queue
+-- Concept map was added 
+
 */
 
 
@@ -153,8 +157,6 @@ int main()
 
 	/*
 	Stack with Pointer
-	*/
-
 
 
 	tStackNode * pTopIndex =nullptr;
@@ -169,9 +171,44 @@ int main()
 	popUpStackPointerNode(&pTopIndex);
 
 	if (pTopIndex)
-		free(pTopIndex);
+	free(pTopIndex);
 
+	*/
+
+    /*
+	Queue with Array
+	/*int QueueArray[ARRAYMAXSIZE] = { 0, };
+	int iFront = -1;
+	int iRear = -1;
+	*/
+
+
+
+	
+	tQueueType* Que = nullptr;
+
+	Que = CreateQueue();
+	
+	enQueItem(Que,1);
+
+	enQueItem(Que, 2);
+
+	//int item = deQueItem(Que);
+	//printf("%d\r\n", item);
+
+	deleteQueItem(Que);
+	
+
+	int item = deQueItem(Que);
+	printf("%d\r\n", item);
+
+
+	item = deQueItem(Que);
+
+	if (Que)
+		free(Que);
 
 	return 0;
-}
+
+}//end of main
 

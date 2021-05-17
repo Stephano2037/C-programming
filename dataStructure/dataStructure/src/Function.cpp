@@ -227,7 +227,7 @@ int popElement(int * pStack, int * pIndexTop)
 void pushElement(int * pStack, int * pIndexTop, int iValue)
 {
 	(*pIndexTop) += 1;
-	if (*pIndexTop == STACKSIZE)
+	if (*pIndexTop == ARRAYMAXSIZE)
 	{
 		(*pIndexTop) -= 1;
 		printf("Stack is Full!!\r\n");
@@ -364,6 +364,7 @@ void deleteStackPointerNode(tStackNode ** pStackNode)
 	pPreviousNode->pNextNode = nullptr;
 	//*pStackNode = pPreviousNode;
 }
+
 //end of addStackPointerNode
 
 
@@ -381,3 +382,58 @@ void printStackwithPointer(tStackNode * pStack, tStackNode* pTop)
 
 
 }
+
+
+//****************** Queue Function ************************
+
+tQueueType * CreateQueue()
+{
+	tQueueType* Que = nullptr;
+	Que = (tQueueType*)calloc(1, sizeof(tQueueType));
+
+	Que->iFront = -1;
+	Que->iRear = -1;
+
+	return Que;
+}
+void enQueItem(tQueueType * Q, int iItem)
+{
+	
+	if ((Q->iRear+1) == (ARRAYMAXSIZE - 1))
+	{
+
+		printf("Queue is Full");
+		return;
+	}
+
+	Q->iRear += 1;
+
+	Q->QueueArray[Q->iRear] = iItem;
+
+}//end of enqueitem function
+
+
+int deQueItem(tQueueType * Q)
+{
+	if ((Q->iFront+1)>Q->iRear)
+	{
+		printf("Queue is Empty");
+		return 0;
+	}
+
+	Q->iFront += 1;
+
+	return Q->QueueArray[Q->iFront];
+}
+void deleteQueItem(tQueueType * Q)
+{
+	if ((Q->iFront + 1)>Q->iRear)
+	{
+		printf("Queue is Empty");
+		return ;
+	}
+
+	Q->iFront += 1;
+
+}
+//end of deQueItem

@@ -6,7 +6,7 @@
 #include <stdlib.h>
 #include "Node.h"
 
-#define STACKSIZE 100
+
 
 
 tPNODE* madeNode();
@@ -50,3 +50,14 @@ void deleteStackPointerNode(tStackNode ** pStackNode);
 
 
 //************************************************
+
+
+
+
+//*************** 21.05.18 Queue*************
+tQueueType* CreateQueue();
+void enQueItem(tQueueType* Q, int iItem);
+int deQueItem(tQueueType* Q);
+void deleteQueItem(tQueueType* Q);;
+
+//*******************************************

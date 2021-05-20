@@ -9,18 +9,18 @@ using namespace std;
 /*
 Author: Chanhyun KIM
 
-First project date : 21.05.08  (yy.mm.dd)
+[First project] date : 21.05.08  (yy.mm.dd)
 
 - Lay the ground work one more time, for my programming skills
 - linked list
 
 
-Second project date : 21.05.12
+[Second project] date : 21.05.12
 
 - polynomial add function with linked list 
 
 
-Third project date : 21.05.15
+[Third project] date : 21.05.15
 
 - Stack 
 -- Array Version 
@@ -29,9 +29,14 @@ Third project date : 21.05.15
 -- Pointer Version 21.05.15 
 
 
-Fourth project date: 21.05.18
+[Fourth project] date: 21.05.18
 - Queue
 -- Concept map was added 
+
+
+[5th project] date: 21.05.20
+- Circular Queue
+
 
 */
 
@@ -154,7 +159,7 @@ int main()
 	printStack(iStack,&iIndexTop); //94~0 , total 48 things will be printed
 
 	*/
-
+  
 	/*
 	Stack with Pointer
 
@@ -180,15 +185,11 @@ int main()
 	/*int QueueArray[ARRAYMAXSIZE] = { 0, };
 	int iFront = -1;
 	int iRear = -1;
-	*/
 
-
-
-	
 	tQueueType* Que = nullptr;
 
 	Que = CreateQueue();
-	
+
 	enQueItem(Que,1);
 
 	enQueItem(Que, 2);
@@ -197,7 +198,7 @@ int main()
 	//printf("%d\r\n", item);
 
 	deleteQueItem(Que);
-	
+
 
 	int item = deQueItem(Que);
 	printf("%d\r\n", item);
@@ -206,8 +207,36 @@ int main()
 	item = deQueItem(Que);
 
 	if (Que)
-		free(Que);
+	free(Que);
 
+
+	*/
+
+/*
+21.05.20 
+Circular Queue 
+
+*/
+	tQueueType* Que = nullptr;
+
+	Que = CreateQueue();
+
+	for (volatile int i = 0; i < CIRCULARQUEUE_SIZE; ++i)
+	{
+		enQue_Circular(Que, i+1);
+	}
+
+	int i = deQue_Circular(Que);
+	printf("%d\r\n", i);
+
+	delQueue_Circular(Que);
+
+	i = deQue_Circular(Que);
+	printf("%d\r\n", i);
+
+	if (Que)
+		free(Que);
+	
 	return 0;
 
 }//end of main

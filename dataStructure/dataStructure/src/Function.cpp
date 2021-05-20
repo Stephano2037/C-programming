@@ -436,4 +436,40 @@ void deleteQueItem(tQueueType * Q)
 	Q->iFront += 1;
 
 }
+void enQue_Circular(tQueueType * Q, int iItem)
+{
+	if (((Q->iRear + 1) % CIRCULARQUEUE_SIZE )== Q->iFront)
+
+	{
+		printf("Circular Queue is Full\r\n");
+		return ;
+	}
+
+	Q->iRear =(Q->iRear+1)%CIRCULARQUEUE_SIZE;
+
+	Q->QueueArray[Q->iRear] = iItem;
+
+}
+int deQue_Circular(tQueueType * Q)
+{
+	
+	if (Q->iRear == Q->iFront)
+	{
+		printf("Circular Queue is Empty\r\n");
+		return -1;
+	}
+	Q->iFront = (Q->iFront + 1) % CIRCULARQUEUE_SIZE;
+
+	
+	return Q->QueueArray[Q->iFront];
+}
+void delQueue_Circular(tQueueType * Q)
+{
+	if (Q->iRear == Q->iFront)
+	{
+		printf("Circular Queue is Empty\r\n");
+		return;
+	}
+	Q->iFront = (Q->iFront + 1) % CIRCULARQUEUE_SIZE;
+}
 //end of deQueItem

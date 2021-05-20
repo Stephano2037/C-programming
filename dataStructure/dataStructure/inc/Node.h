@@ -40,7 +40,7 @@ typedef struct stackNode
 
 typedef struct QueueStruct
 {
-	int QueueArray[ARRAYMAXSIZE] = { 0, };
+	int QueueArray[CIRCULARQUEUE_SIZE] = { 0, };
 	int iFront = -1;
 	int iRear = -1;
 }tQueueType;

@@ -61,3 +61,8 @@ int deQueItem(tQueueType* Q);
 void deleteQueItem(tQueueType* Q);;
 
 //*******************************************
+
+//21.05.20 Circular Queue
+void enQue_Circular(tQueueType* Q, int iItem);
+int deQue_Circular(tQueueType* Q);
+void delQueue_Circular(tQueueType* Q);

@@ -130,6 +130,7 @@
     <ClCompile Include="src\LinkedList.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="inc\Common.h" />
     <ClInclude Include="inc\Function.h" />
     <ClInclude Include="inc\Node.h" />
   </ItemGroup>

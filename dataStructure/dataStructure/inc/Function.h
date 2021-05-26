@@ -66,3 +66,13 @@ void deleteQueItem(tQueueType* Q);;
 void enQue_Circular(tQueueType* Q, int iItem);
 int deQue_Circular(tQueueType* Q);
 void delQueue_Circular(tQueueType* Q);
+
+
+
+//21.05.26 Pointer Linked List Queue
+tQLinkedList* CreateLinkListQ();
+void enQue_LinkedList(tQLinkedList * pHead, int iValue);
+void delQue_LinkedList(tQLinkedList* pHead);
+int deQue_LinkedList(tQLinkedList* pHead);
+
+void deleteAllNodeofLinkedListQue(tQLinkedList* pHead);

@@ -45,4 +45,16 @@ typedef struct QueueStruct
 	int iRear = -1;
 }tQueueType;
 
+
+typedef struct poInterQueueStruct
+{
+	int iValue;
+	poInterQueueStruct* pNext;
+}tQueueNode;
+
+typedef struct QueuelinkedList
+{
+	tQueueNode* pFront;
+	tQueueNode* pRear;
+}tQLinkedList;
 #pragma pack(pop)

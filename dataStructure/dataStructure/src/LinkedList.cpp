@@ -38,6 +38,9 @@ Author: Chanhyun KIM
 - Circular Queue
 
 
+[6th project] date: 21.05.26
+- Linked List Queue
+
 */
 
 
@@ -215,29 +218,50 @@ int main()
 /*
 21.05.20 
 Circular Queue 
+tQueueType* Que = nullptr;
 
+Que = CreateQueue();
+
+for (volatile int i = 0; i < CIRCULARQUEUE_SIZE; ++i)
+{
+enQue_Circular(Que, i+1);
+}
+
+int i = deQue_Circular(Que);
+printf("%d\r\n", i);
+
+delQueue_Circular(Que);
+
+i = deQue_Circular(Que);
+printf("%d\r\n", i);
+
+if (Que)
+free(Que);
+
+return 0;
 */
-	tQueueType* Que = nullptr;
 
-	Que = CreateQueue();
+    /*
+	21.05.25 Linked List Queue
+	*/
 
-	for (volatile int i = 0; i < CIRCULARQUEUE_SIZE; ++i)
-	{
-		enQue_Circular(Que, i+1);
-	}
+	tQLinkedList * QList = nullptr;
+	QList = CreateLinkListQ();
 
-	int i = deQue_Circular(Que);
-	printf("%d\r\n", i);
+	enQue_LinkedList(QList,5);
 
-	delQueue_Circular(Que);
+	enQue_LinkedList(QList, 10);
 
-	i = deQue_Circular(Que);
-	printf("%d\r\n", i);
-
-	if (Que)
-		free(Que);
 	
-	return 0;
+	delQue_LinkedList(QList);
+
+	if (QList)
+	{
+		deleteAllNodeofLinkedListQue(QList);
+		free(QList);
+	}
+		
+
 
 }//end of main
 

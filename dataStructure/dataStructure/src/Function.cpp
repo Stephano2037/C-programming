@@ -391,8 +391,8 @@ tQueueType * CreateQueue()
 	tQueueType* Que = nullptr;
 	Que = (tQueueType*)calloc(1, sizeof(tQueueType));
 
-	Que->iFront = -1;
-	Que->iRear = -1;
+	Que->iFront = 0;
+	Que->iRear = 0;
 
 	return Que;
 }
@@ -472,4 +472,122 @@ void delQueue_Circular(tQueueType * Q)
 	}
 	Q->iFront = (Q->iFront + 1) % CIRCULARQUEUE_SIZE;
 }
-//end of deQueItem
+tQLinkedList * CreateLinkListQ()
+{
+	tQLinkedList* pHead;
+
+
+	pHead = (tQLinkedList*)malloc(sizeof(tQLinkedList));
+
+	pHead->pFront = nullptr;
+	pHead->pRear = nullptr;
+	
+
+
+
+	return pHead;
+}
+
+
+void enQue_LinkedList(tQLinkedList * pHead, int iValue)
+{
+
+	tQueueNode* pTemp = (tQueueNode*)malloc(sizeof(tQueueNode));
+
+
+	pTemp->iValue = iValue;
+	pTemp->pNext = nullptr;
+
+
+	
+
+	if (pHead->pFront == nullptr)
+	{
+		pHead->pFront = pTemp;
+		pHead->pRear = pTemp;
+	}
+	else
+	{
+		pHead->pRear->pNext = pTemp;
+		pHead->pRear = pHead->pRear->pNext;
+
+	}
+
+}
+
+void delQue_LinkedList(tQLinkedList * pHead)
+{
+	tQueueNode * oldPointer = pHead->pFront;
+
+	if (pHead->pFront == nullptr)
+	{
+		printf("Can't delete. Empty\r\n");
+		return;
+	}//end of if
+		
+	else
+	{
+		pHead->pFront = pHead->pFront->pNext;
+		if (pHead->pFront == nullptr)
+		{
+			pHead->pRear = nullptr;
+		}
+
+		free(oldPointer);
+
+	}//end of else
+}
+int deQue_LinkedList(tQLinkedList * pHead)
+{
+	int iRetVal = 0;
+	tQueueNode * oldPointer = pHead->pFront;
+
+	iRetVal = oldPointer->iValue;
+
+	if (pHead->pFront == nullptr)
+	{
+		printf("Can't deQ . Empty\r\n");
+		exit(1);
+	}//end of if
+
+	else
+	{
+		pHead->pFront = pHead->pFront->pNext;
+		if (pHead->pFront == nullptr)
+		{
+			pHead->pRear = nullptr;
+		}
+
+		free(oldPointer);
+
+		return iRetVal;
+	}//end of else
+}//end of deQueItem
+
+
+
+void deleteAllNodeofLinkedListQue(tQLinkedList * pHead)
+{
+
+
+	tQueueNode* pTemp= pHead->pFront;
+	//pHead->pFront = nullptr;
+
+	if (pTemp == nullptr)
+	{
+		printf("Already Deleted All Node\r\n");
+		return;
+	}
+		
+
+	while (pTemp != nullptr)
+	{
+		pTemp = pHead->pFront->pNext;
+		free(pHead->pFront);
+
+	}//end of while
+
+}//end of void deleteAll 
+
+
+

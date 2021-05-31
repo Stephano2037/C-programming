@@ -52,9 +52,26 @@ typedef struct poInterQueueStruct
 	poInterQueueStruct* pNext;
 }tQueueNode;
 
+
 typedef struct QueuelinkedList
 {
 	tQueueNode* pFront;
 	tQueueNode* pRear;
 }tQLinkedList;
+
+
+
+typedef struct poInterDeQueStruct
+{
+	int iValue;
+	poInterDeQueStruct* pPrevious;
+	poInterDeQueStruct* pNext;
+}tDeQueNode;
+
+
+typedef struct DequelinkedList
+{
+	tDeQueNode* pFront;
+	tDeQueNode* pRear;
+}tDeQLinkedList;
 #pragma pack(pop)

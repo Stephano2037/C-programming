@@ -587,7 +587,181 @@ void deleteAllNodeofLinkedListQue(tQLinkedList * pHead)
 
 	}//end of while
 
-}//end of void deleteAll 
+}
+tDeQLinkedList * CreateLinkListDeq()
+{
+	tDeQLinkedList* deQueListTemp = nullptr;
+
+	deQueListTemp = (tDeQLinkedList*)malloc(sizeof(tDeQLinkedList));
+
+	deQueListTemp->pFront = nullptr;
+	deQueListTemp->pRear = nullptr;
+
+	return deQueListTemp;
+}
+
+void insertFront(tDeQLinkedList * pHead, int iValue)
+{
+	tDeQueNode* pTemp=(tDeQueNode*)malloc(sizeof(tDeQueNode));
+	pTemp->iValue = iValue;
+
+	if (pHead->pFront == nullptr)
+	{
+		//pHead->pFront = (tDeQueNode*)malloc(sizeof(tDeQueNode));
+		pHead->pFront = pTemp;
+		pHead->pRear = pTemp;
+
+		pTemp->pNext = nullptr;
+		pTemp->pPrevious = nullptr;
+
+	}//end of if
+	else
+	{
+		pHead->pFront->pPrevious = pTemp;
+		pTemp->pNext = pHead->pFront; 
+		pTemp->pPrevious = nullptr;
+		pHead->pFront = pTemp;
+
+	}
+
+
+
+}//end of insertFront
+
+void delFront(tDeQLinkedList * pHead)
+{
+	tDeQueNode* pTemp = pHead->pFront;
+	if (pTemp==nullptr)
+	{
+		printf("Nothing in Deq\r\n");
+		return;
+	}
+	else if (pHead->pFront->pNext == nullptr)
+	{
+		pHead->pFront = nullptr;
+		pHead->pRear = nullptr;
+
+	}//end of else if
+	else
+	{
+		
+		pHead->pFront = pHead->pFront->pNext;
+		pHead->pFront->pPrevious = nullptr;
+	}
+	free(pTemp);
+	
+	printf("delFront\r\n");
+
+
+}//end of delfront
+
+int popUpFront(tDeQLinkedList * pHead)
+{
+	tDeQueNode* pTemp = pHead->pFront;
+	int iValue = pTemp->iValue;
+
+	if (pTemp == nullptr)
+	{
+		printf("Nothing in Deq\r\n");
+		return -1;
+	}
+	else if (pHead->pFront->pNext == nullptr)
+	{
+		pHead->pFront = nullptr;
+		pHead->pRear = nullptr;
+
+	}//end of else if
+	else
+	{
+
+		pHead->pFront = pHead->pFront->pNext;
+		pHead->pFront->pPrevious = nullptr;
+	}
+	free(pTemp);
+
+	printf("popUp & delete Front\r\n");
+	return iValue;
+}
+
+void insertRear(tDeQLinkedList * pHead, int iValue)
+{
+	tDeQueNode* pTemp = (tDeQueNode*)malloc(sizeof(tDeQueNode));
+	pTemp->iValue = iValue;
+
+	if (pHead->pRear == nullptr)
+	{
+		//pHead->pFront = (tDeQueNode*)malloc(sizeof(tDeQueNode));
+		pHead->pFront = pTemp;
+		pHead->pRear = pTemp;
+
+		pTemp->pNext = nullptr;
+		pTemp->pPrevious = nullptr;
+
+	}//end of if
+	else
+	{
+		pHead->pRear->pNext = pTemp;
+		pTemp->pNext = nullptr;
+		pTemp->pPrevious = pHead->pRear;
+		pHead->pRear = pTemp;
+	}
+}
+
+void delRear(tDeQLinkedList * pHead, int iValue)
+{
+	tDeQueNode* pTemp = pHead->pRear;
+
+	if (pTemp == nullptr)
+	{
+		printf("Nothing in Deq (REAR) \r\n");
+		return;
+	}
+	else if (pTemp->pPrevious==nullptr)
+	{
+		pHead->pFront = nullptr;
+		pHead->pRear = nullptr;
+	}
+	else
+	{
+		pHead->pRear = pHead->pRear->pPrevious;
+		pHead->pRear->pNext = nullptr;
+	}
+
+	free(pTemp);
+	
+
+
+
+	
+}
+
+int popUpRear(tDeQLinkedList * pHead)
+{
+	tDeQueNode* pTemp = pHead->pRear;
+	int iValue = pTemp->iValue;
+
+	if (pTemp == nullptr)
+	{
+		printf("Nothing in Deq (REAR) \r\n");
+		return -1;
+	}
+	else if (pTemp->pPrevious == nullptr)
+	{
+		pHead->pFront = nullptr;
+		pHead->pRear = nullptr;
+	}
+	else
+	{
+		pHead->pRear = pHead->pRear->pPrevious;
+		pHead->pRear->pNext = nullptr;
+	}
+
+	free(pTemp);
+
+	return iValue;
+}
+
+//end of void deleteAll 
 
 
 

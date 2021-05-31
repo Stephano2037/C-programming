@@ -76,3 +76,16 @@ void delQue_LinkedList(tQLinkedList* pHead);
 int deQue_LinkedList(tQLinkedList* pHead);
 
 void deleteAllNodeofLinkedListQue(tQLinkedList* pHead);
+
+
+//21.05.31 Pointer Linked List Deque
+tDeQLinkedList* CreateLinkListDeq();
+void insertFront(tDeQLinkedList * pHead, int iValue);
+void delFront(tDeQLinkedList* pHead);
+int popUpFront(tDeQLinkedList * pHead);
+
+void insertRear(tDeQLinkedList* pHead,int iValue);
+void delRear(tDeQLinkedList* pHead, int iValue);
+int popUpRear(tDeQLinkedList * pHead);
+
+//***************************************

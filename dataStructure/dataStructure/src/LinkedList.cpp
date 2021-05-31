@@ -243,7 +243,6 @@ return 0;
 
     /*
 	21.05.25 Linked List Queue
-	*/
 
 	tQLinkedList * QList = nullptr;
 	QList = CreateLinkListQ();
@@ -252,15 +251,34 @@ return 0;
 
 	enQue_LinkedList(QList, 10);
 
-	
+
 	delQue_LinkedList(QList);
 
 	if (QList)
 	{
-		deleteAllNodeofLinkedListQue(QList);
-		free(QList);
+	deleteAllNodeofLinkedListQue(QList);
+	free(QList);
 	}
-		
+
+	*/
+
+
+/*
+21.05.31 Deque
+
+
+*/
+
+	tDeQLinkedList* deQueList = nullptr;
+	deQueList =CreateLinkListDeq();
+
+
+	insertRear(deQueList,1);
+
+	insertFront(deQueList, 3);
+
+	if (deQueList)
+		free(deQueList);
 
 
 }//end of main

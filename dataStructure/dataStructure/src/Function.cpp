@@ -761,6 +761,51 @@ int popUpRear(tDeQLinkedList * pHead)
 	return iValue;
 }
 
+tBTNode* MakeNewBinaryNode(char data,tBTNode* pLeft, tBTNode* pRight)
+{
+	tBTNode* pNode = (tBTNode*)malloc(sizeof(tBTNode));
+	pNode->m_iData = data;
+	pNode->m_pLeft = pLeft;
+	pNode->m_pRight = pRight;
+	
+
+	return pNode;
+}
+
+//전위 순회
+void preOrder(tBTNode * root)
+{
+	if (root)
+	{
+		printf("%c\r\n",root->m_iData);
+		preOrder(root->m_pLeft);
+		preOrder(root->m_pRight);
+	}
+}
+
+//중위 순회
+void inOrder(tBTNode * root)
+{
+	if (root)
+	{
+		
+		inOrder(root->m_pLeft);
+		printf("%c\r\n", root->m_iData);
+		inOrder(root->m_pRight);
+	}
+}
+//후위 순회
+void postOrder(tBTNode * root)
+{
+	if (root)
+	{
+		
+		postOrder(root->m_pLeft);
+		postOrder(root->m_pRight);
+		printf("%c\r\n", root->m_iData);
+	}
+}
+
 //end of void deleteAll 
 
 

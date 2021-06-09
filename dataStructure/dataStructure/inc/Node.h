@@ -74,4 +74,18 @@ typedef struct DequelinkedList
 	tDeQueNode* pFront;
 	tDeQueNode* pRear;
 }tDeQLinkedList;
+
+
+typedef struct BinaryTree
+{
+	char m_iData;
+	BinaryTree* m_pLeft;
+	BinaryTree* m_pRight;
+}tBTNode;
+
+
+typedef struct BinaryTreeList
+{
+	tBTNode* pBtNodeHead;
+}tBTList;
 #pragma pack(pop)

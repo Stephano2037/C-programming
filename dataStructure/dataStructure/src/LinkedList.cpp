@@ -265,21 +265,40 @@ return 0;
 
 /*
 21.05.31 Deque
+tDeQLinkedList* deQueList = nullptr;
+deQueList =CreateLinkListDeq();
 
+
+insertRear(deQueList,1);
+
+insertFront(deQueList, 3);
+
+if (deQueList)
+free(deQueList);
 
 */
 
-	tDeQLinkedList* deQueList = nullptr;
-	deQueList =CreateLinkListDeq();
+/*
 
+21.06.09 Binary Tree
+*/
 
-	insertRear(deQueList,1);
+	tBTNode* tBT_8 = MakeNewBinaryNode('A', nullptr, nullptr);
+	tBTNode* tBT_7 = MakeNewBinaryNode('B', nullptr, nullptr);
+	tBTNode* tBT_1= MakeNewBinaryNode('D', tBT_8, tBT_7);
+	
 
-	insertFront(deQueList, 3);
+	//preOrder(tBT_1);
+	//inOrder(tBT_1);
+	postOrder(tBT_1);
 
-	if (deQueList)
-		free(deQueList);
+	if (tBT_8)
+		free(tBT_8);
+	if (tBT_7)
+		free(tBT_7);
 
+	if (tBT_1)
+		free(tBT_1);
 
 }//end of main
 

@@ -89,3 +89,11 @@ void delRear(tDeQLinkedList* pHead, int iValue);
 int popUpRear(tDeQLinkedList * pHead);
 
 //***************************************
+
+//2021.06.09 BInaryTree
+tBTNode* MakeNewBinaryNode(char data, tBTNode* pLeft, tBTNode* pRight);
+void preOrder(tBTNode* root);
+void inOrder(tBTNode* root);
+void postOrder(tBTNode* root);
+
+//****************************

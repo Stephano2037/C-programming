@@ -41,9 +41,18 @@ Author: Chanhyun KIM
 [6th project] date: 21.05.26
 - Linked List Queue
 
+
+[7th project] date:21.06.09 
+- Binary Tree
+-- Preorder , inorder, Postorder
+
+[-- date: 21.06.14
+- Binary Tree (AddFolder size)
+
+
 */
 
-
+unsigned int g_iFolerSize = 0;
 
 int main()
 {
@@ -281,24 +290,84 @@ free(deQueList);
 /*
 
 21.06.09 Binary Tree
+tBTNode* tBT_8 = MakeNewBinaryNode('A', nullptr, nullptr);
+tBTNode* tBT_7 = MakeNewBinaryNode('B', nullptr, nullptr);
+tBTNode* tBT_1= MakeNewBinaryNode('D', tBT_8, tBT_7);
+
+
+//preOrder(tBT_1);
+//inOrder(tBT_1);
+postOrder(tBT_1);
+
+if (tBT_8)
+free(tBT_8);
+if (tBT_7)
+free(tBT_7);
+
+if (tBT_1)
+free(tBT_1);
+
 */
 
-	tBTNode* tBT_8 = MakeNewBinaryNode('A', nullptr, nullptr);
-	tBTNode* tBT_7 = MakeNewBinaryNode('B', nullptr, nullptr);
-	tBTNode* tBT_1= MakeNewBinaryNode('D', tBT_8, tBT_7);
-	
+/*
+21.06.14 Binary Tree (AddFolder)
 
-	//preOrder(tBT_1);
-	//inOrder(tBT_1);
-	postOrder(tBT_1);
+*/
 
-	if (tBT_8)
-		free(tBT_8);
-	if (tBT_7)
-		free(tBT_7);
+	tBTNode* tBT_G = MakeNewBinaryNode_Folder(4777, nullptr, nullptr);
+	tBTNode* tBT_F = MakeNewBinaryNode_Folder(5555, nullptr, nullptr);
+	tBTNode* tBT_E = MakeNewBinaryNode_Folder(700, tBT_G, tBT_F);
+	tBTNode* tBT_D = MakeNewBinaryNode_Folder(1000, nullptr, nullptr);
+	tBTNode* tBT_C = MakeNewBinaryNode_Folder(50, nullptr, nullptr);
+	tBTNode* tBT_B = MakeNewBinaryNode_Folder(100, tBT_E, nullptr);
+	tBTNode* tBT_A = MakeNewBinaryNode_Folder(0, tBT_C, tBT_D);
+	tBTNode* tBT_Root = MakeNewBinaryNode_Folder(0, tBT_A, tBT_B);
 
-	if (tBT_1)
-		free(tBT_1);
+
+	postOrder_AddFolderSize(tBT_Root);
+
+	cout << "Total FolderSize:" << g_iFolerSize <<"  Byte" << endl;
+
+
+	g_iFolerSize = 0;
+
+	postOrder_AddFolderSize(tBT_B);
+
+	cout << "Total [B] FolderSize:" << g_iFolerSize << "  Byte" << endl;
+
+
+	if (tBT_Root)
+	{
+		free(tBT_Root);
+	}
+	if (tBT_A)
+	{
+		free(tBT_A);
+	}
+	if (tBT_B)
+	{
+		free(tBT_B);
+	}
+	if (tBT_C)
+	{
+		free(tBT_C);
+	}
+	if (tBT_D)
+	{
+		free(tBT_D);
+	}
+	if (tBT_E)
+	{
+		free(tBT_E);
+	}
+	if (tBT_F)
+	{
+		free(tBT_F);
+	}
+	if (tBT_G)
+	{
+		free(tBT_G);
+	}
 
 }//end of main
 

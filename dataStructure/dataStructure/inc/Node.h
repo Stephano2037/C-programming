@@ -78,7 +78,8 @@ typedef struct DequelinkedList
 
 typedef struct BinaryTree
 {
-	char m_iData;
+	//char m_iData;
+	unsigned int m_iData;
 	BinaryTree* m_pLeft;
 	BinaryTree* m_pRight;
 }tBTNode;
@@ -88,4 +89,6 @@ typedef struct BinaryTreeList
 {
 	tBTNode* pBtNodeHead;
 }tBTList;
+
+extern  unsigned int g_iFolerSize ;
 #pragma pack(pop)

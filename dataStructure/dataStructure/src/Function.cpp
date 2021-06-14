@@ -806,6 +806,28 @@ void postOrder(tBTNode * root)
 	}
 }
 
+tBTNode * MakeNewBinaryNode_Folder(int iDatasize, tBTNode * pLeft, tBTNode * pRight)
+{
+	tBTNode* pNode = (tBTNode*)malloc(sizeof(tBTNode));
+	pNode->m_iData = iDatasize;
+	pNode->m_pLeft = pLeft;
+	pNode->m_pRight = pRight;
+
+
+	return pNode;
+}
+
+void postOrder_AddFolderSize(tBTNode * root)
+{
+	if (root)
+	{
+		postOrder_AddFolderSize(root->m_pLeft);
+		postOrder_AddFolderSize(root->m_pRight);
+		//printf("%c\r\n", root->m_iData);
+		g_iFolerSize += root->m_iData;
+	}
+}
+
 //end of void deleteAll 
 
 

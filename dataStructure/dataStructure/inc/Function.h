@@ -97,3 +97,10 @@ void inOrder(tBTNode* root);
 void postOrder(tBTNode* root);
 
 //****************************
+
+
+//2021.06.14 BinaryTree add folder size function
+//
+
+tBTNode* MakeNewBinaryNode_Folder(int iDatasize, tBTNode* pLeft, tBTNode* pRight);
+void postOrder_AddFolderSize(tBTNode* root);

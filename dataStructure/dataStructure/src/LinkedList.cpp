@@ -50,6 +50,9 @@ Author: Chanhyun KIM
 - Binary Tree (AddFolder size)
 
 
+[8th project] date: 2106.16
+- Hashing study ( Study first)
+
 */
 
 unsigned int g_iFolerSize = 0;
@@ -312,62 +315,62 @@ free(tBT_1);
 /*
 21.06.14 Binary Tree (AddFolder)
 
+tBTNode* tBT_G = MakeNewBinaryNode_Folder(4777, nullptr, nullptr);
+tBTNode* tBT_F = MakeNewBinaryNode_Folder(5555, nullptr, nullptr);
+tBTNode* tBT_E = MakeNewBinaryNode_Folder(700, tBT_G, tBT_F);
+tBTNode* tBT_D = MakeNewBinaryNode_Folder(1000, nullptr, nullptr);
+tBTNode* tBT_C = MakeNewBinaryNode_Folder(50, nullptr, nullptr);
+tBTNode* tBT_B = MakeNewBinaryNode_Folder(100, tBT_E, nullptr);
+tBTNode* tBT_A = MakeNewBinaryNode_Folder(0, tBT_C, tBT_D);
+tBTNode* tBT_Root = MakeNewBinaryNode_Folder(0, tBT_A, tBT_B);
+
+
+postOrder_AddFolderSize(tBT_Root);
+
+cout << "Total FolderSize:" << g_iFolerSize <<"  Byte" << endl;
+
+
+g_iFolerSize = 0;
+
+postOrder_AddFolderSize(tBT_B);
+
+cout << "Total [B] FolderSize:" << g_iFolerSize << "  Byte" << endl;
+
+
+if (tBT_Root)
+{
+free(tBT_Root);
+}
+if (tBT_A)
+{
+free(tBT_A);
+}
+if (tBT_B)
+{
+free(tBT_B);
+}
+if (tBT_C)
+{
+free(tBT_C);
+}
+if (tBT_D)
+{
+free(tBT_D);
+}
+if (tBT_E)
+{
+free(tBT_E);
+}
+if (tBT_F)
+{
+free(tBT_F);
+}
+if (tBT_G)
+{
+free(tBT_G);
+}
 */
 
-	tBTNode* tBT_G = MakeNewBinaryNode_Folder(4777, nullptr, nullptr);
-	tBTNode* tBT_F = MakeNewBinaryNode_Folder(5555, nullptr, nullptr);
-	tBTNode* tBT_E = MakeNewBinaryNode_Folder(700, tBT_G, tBT_F);
-	tBTNode* tBT_D = MakeNewBinaryNode_Folder(1000, nullptr, nullptr);
-	tBTNode* tBT_C = MakeNewBinaryNode_Folder(50, nullptr, nullptr);
-	tBTNode* tBT_B = MakeNewBinaryNode_Folder(100, tBT_E, nullptr);
-	tBTNode* tBT_A = MakeNewBinaryNode_Folder(0, tBT_C, tBT_D);
-	tBTNode* tBT_Root = MakeNewBinaryNode_Folder(0, tBT_A, tBT_B);
-
-
-	postOrder_AddFolderSize(tBT_Root);
-
-	cout << "Total FolderSize:" << g_iFolerSize <<"  Byte" << endl;
-
-
-	g_iFolerSize = 0;
-
-	postOrder_AddFolderSize(tBT_B);
-
-	cout << "Total [B] FolderSize:" << g_iFolerSize << "  Byte" << endl;
-
-
-	if (tBT_Root)
-	{
-		free(tBT_Root);
-	}
-	if (tBT_A)
-	{
-		free(tBT_A);
-	}
-	if (tBT_B)
-	{
-		free(tBT_B);
-	}
-	if (tBT_C)
-	{
-		free(tBT_C);
-	}
-	if (tBT_D)
-	{
-		free(tBT_D);
-	}
-	if (tBT_E)
-	{
-		free(tBT_E);
-	}
-	if (tBT_F)
-	{
-		free(tBT_F);
-	}
-	if (tBT_G)
-	{
-		free(tBT_G);
-	}
 
 }//end of main
 

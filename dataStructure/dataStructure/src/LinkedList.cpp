@@ -50,8 +50,8 @@ Author: Chanhyun KIM
 - Binary Tree (AddFolder size)
 
 
-[8th project] date: 2106.16
-- Hashing study ( Study first)
+[8th project] date: 21.06.19
+- Binary tree sort I
 
 */
 
@@ -371,6 +371,21 @@ free(tBT_G);
 }
 */
 
+
+/*
+21.06.19
+- Binary tree sort I
+
+*/
+
+	tBTNode* pRoot = nullptr;
+	pRoot=	InsertBinaryNode(pRoot,5);
+	InsertBinaryNode(pRoot, 10);
+
+	
+	if (pRoot)
+		free(pRoot);
+	
 
 }//end of main
 

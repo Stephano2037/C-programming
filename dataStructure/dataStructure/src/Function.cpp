@@ -828,6 +828,33 @@ void postOrder_AddFolderSize(tBTNode * root)
 	}
 }
 
+
+
+tBTNode* InsertBinaryNode(tBTNode * pRoot,unsigned int num)
+{
+	tBTNode* pTemp = nullptr;
+	if (pRoot == nullptr)
+	{
+		pTemp = (tBTNode*)malloc(sizeof(tBTNode));
+		pTemp->m_iData = num;
+		pTemp->m_pLeft = nullptr;
+		pTemp->m_pRight = nullptr;
+
+		return pTemp;
+	}
+
+	
+	if (pRoot->m_iData > num)
+	{
+		pRoot->m_pLeft = InsertBinaryNode(pTemp,num);
+	}
+	else
+		pRoot->m_pRight = InsertBinaryNode(pTemp, num);
+
+	return pRoot;
+
+}
+
 //end of void deleteAll 
 
 

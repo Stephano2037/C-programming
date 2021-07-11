@@ -855,35 +855,6 @@ tBTNode* InsertBinaryNode(tBTNode * pRoot,unsigned int num)
 
 }
 
-tBTNode* SearchDatainBinaryNode(tBTNode * pRoot, unsigned int num)
-{
-	if (pRoot == nullptr) {
-		printf("There is no NODE for searching \r\n");
-		return nullptr;
-	}//end of if
-
-	//tBTNode* pTemp = nullptr;
-
-	if (pRoot->m_iData == num)
-	{
-		printf("Found Node \r\n", num);
-		return pRoot;
-	}
-	else if(pRoot->m_iData>num)
-	{
-		pRoot = SearchDatainBinaryNode(pRoot->m_pLeft,num);
-	}
-	else
-	{
-		pRoot = SearchDatainBinaryNode(pRoot->m_pRight, num);
-	}
-	return pRoot;
-
-
-}//end of void
-
-
-
 //end of void deleteAll 
 
 

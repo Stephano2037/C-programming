@@ -379,12 +379,9 @@ free(tBT_G);
 */
 
 	tBTNode* pRoot = nullptr;
-	tBTNode* pSearchingNode = nullptr;
 	pRoot=	InsertBinaryNode(pRoot,5);
 	InsertBinaryNode(pRoot, 10);
 
-
-	pSearchingNode = SearchDatainBinaryNode(pRoot,10);
 	
 	if (pRoot)
 		free(pRoot);

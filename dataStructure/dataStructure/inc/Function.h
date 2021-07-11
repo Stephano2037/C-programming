@@ -111,5 +111,5 @@ void postOrder_AddFolderSize(tBTNode* root);
 //2021.06.19 BinaryTree 
 //tBTNode* MakeNewBinaryNodeList(int iDatasize);
 tBTNode* InsertBinaryNode(tBTNode * pRoot, unsigned int num);
-
+tBTNode* SearchDatainBinaryNode(tBTNode * pRoot, unsigned int num);
 //******************************************

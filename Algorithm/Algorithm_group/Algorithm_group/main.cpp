@@ -1,12 +1,17 @@
-#include <iostream>
+
+/*
+copyright @ Stephano(chan hyun kim)
+- 21.07.11  simple algorithm (while)
+
+
+*/
+
+
+#include <stdio.h>
+
 #pragma pack(1)
-
-using namespace std;
-
-typedef union {
-	int iNum;
-	int iNum2;
-}union_Number;
+//#include <iostream>
+//using namespace std;
 
 typedef struct {
 	int m_iNum;
@@ -14,15 +19,11 @@ typedef struct {
 }tNumber;
 
 
+
 int main()
 {
-
 	tNumber Number = {0,};
-
-	
-	
-	while (1)
-	{
+	while (1)	{
 		//cin >> Number.m_iNum >> Number.m_iNum2;
 		scanf_s("%d %d", &Number.m_iNum,&Number.m_iNum2);
 		int iSum = (Number.m_iNum + Number.m_iNum2);
@@ -31,7 +32,4 @@ int main()
 		printf(" %d\r\n", iSum);
 	}
 
-	//uNumber.iNum = 1;
-	
-
-}
+}//end of main

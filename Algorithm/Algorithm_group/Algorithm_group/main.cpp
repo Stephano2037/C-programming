@@ -1,12 +1,22 @@
+/*
+- BackJoon Algorithm 
+https://www.acmicpc.net/problemset
+*/
+
 #include <iostream>
 #pragma pack(1)
 
 using namespace std;
 
-typedef union {
-	int iNum;
-	int iNum2;
-}union_Number;
+
+const int CONST_INT_OXQUIZ = 79;
+
+typedef struct {
+	int m_iNum;
+	int m_iNum2;
+}tNumber;
+
+
 
 
 int checkSameDelta(int num)
@@ -35,6 +45,8 @@ int checkSameDelta(int num)
 
 	return iNum;
 }//end of checkSameDelta
+
+
 
 
 int main()
@@ -89,8 +101,7 @@ int main()
 	printf("%d\r\n", iCycleCount);
 	*/
 	
-	/*210711 cycle of add
-	*/
+	/*210711 arithmetic sequence
 	volatile bool bKeepgoing = true;
 	int iNum = 0;
 	int iCount = 0;
@@ -100,40 +111,98 @@ int main()
 
 	while (bKeepgoing)
 	{
-		scanf_s("%d", &iNum);
-		switch (iNum / 100) {
-		case 0: {
-			iCount = 0;
-			printf("%d\r\n", iNum + iCount);
-			bKeepgoing = false;
-			break;
-		}
-		case 1:
-		case 2:
-		case 3:
-		case 4:
-		case 5:
-		case 6:
-		case 7:
-		case 8:
-		case 9:
-		{
-			iCount += 99;
-			bKeepgoing = false;
+	scanf_s("%d", &iNum);
+	switch (iNum / 100) {
+	case 0: {
+	iCount = 0;
+	printf("%d\r\n", iNum + iCount);
+	bKeepgoing = false;
+	break;
+	}
+	case 1:
+	case 2:
+	case 3:
+	case 4:
+	case 5:
+	case 6:
+	case 7:
+	case 8:
+	case 9:
+	{
+	iCount += 99;
+	bKeepgoing = false;
 
-			for (int i = 100; i <= iNum; ++i)
-			{
-				iRv += checkSameDelta(i);
-			//	if (iRv != 0)
-				//	printf("[%d] \r\n" ,i );
-			}
-				
+	for (int i = 100; i <= iNum; ++i)
+	{
+	iRv += checkSameDelta(i);
+		if (iRv != 0)
+	//	printf("[%d] \r\n" ,i );
+	}
 
 
-			printf("%d\r\n", iRv + iCount);
-			break;
-		}
-		}//end of switch
+
+	printf("%d\r\n", iRv + iCount);
+	break;
+	}
+	}//end of switch
 	}//end of while
+	*/
+	
+	/*210712 OX quiz 
+	https://www.acmicpc.net/problem/8958
+	*/
+
+	unsigned char szArray[CONST_INT_OXQUIZ] = { 0, };
+	int index = 0;
+	int iSum = 0;
+	int iTempSum = 0;
+	int iCount = 0;
+
+	const char cMatching_O = 'O';
+
+	scanf_s("%d",&iCount);
+
+	//clear buffer
+	getchar();
+	
+	for (volatile int i = 0; i < iCount; ++i)
+	{
+		iSum = 0;
+		while (1)
+		{
+			szArray[index++] = getchar();
+			//scanf_s("%c", &szArray[index++]);
+			if (szArray[index - 1] == '\n') break;
+		}//end of while
+
+
+		
+		for (volatile int j = 0; ; j++)
+		{
+
+			if (cMatching_O == szArray[j]) {
+				iTempSum += 1;
+				continue;
+			}//end of if
+			else { 
+				
+				for (volatile int m = 0; m < iTempSum; ++m)	{
+					iSum += (m+1);
+				}
+				iTempSum = 0;
+				index = 0;
+				
+			}//end of else
+
+
+			if (szArray[j] == '\n') break;
+
+		}//end of j
+
+		printf("[%d] , %d \r\n",i+1,iSum);
+
+	}//end of for i
+
+	
 
 }//end of while

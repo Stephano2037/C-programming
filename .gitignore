@@ -261,3 +261,5 @@ __pycache__/
 *.pyc
 /Algorithm/Algorithm_group/Algorithm_group.sln
 /dataStructure/dataStructure.sln
+/Algorithm/Algorithm_group/Algorithm_group/Algorithm_group.vcxproj.filters
+/Algorithm/Algorithm_group/Algorithm_group/Algorithm_group.vcxproj

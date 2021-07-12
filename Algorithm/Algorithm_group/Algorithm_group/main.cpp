@@ -206,39 +206,50 @@ int main()
 	
    /* #5. 210712 손익분기점 Calculate break-even point
    https://www.acmicpc.net/problem/1712
+
+   uint64_t iFixedPrice = 0;
+   uint64_t iVariablePrice = 0;
+   uint64_t iSellingPrice = 0;
+   uint64_t iSum = 0;
+   uint64_t iTempSum = 0;
+   uint64_t iCount = 1;
+   scanf_s("%d %d %d",&iFixedPrice,&iVariablePrice,&iSellingPrice);
+
+   if (  int64_t((iSellingPrice * iCount)- (iVariablePrice*iCount))   < 0)
+   {
+   printf("-1\r\n");
+
+
+   exit(0);
+   }
+
+   else {
+   while (1) {
+   iSum = iFixedPrice + (iVariablePrice*iCount);
+   iTempSum = (iSellingPrice*iCount);
+   if (iSum > iTempSum) iCount += 1;
+   else
+   {
+   iCount += 1;
+   break;
+   }
+
+   }//end of while
+   }
+
+
+   printf("%ll\r\n", iCount);
    */
-	
-	uint64_t iFixedPrice = 0;
-	uint64_t iVariablePrice = 0;
-	uint64_t iSellingPrice = 0;
-	uint64_t iSum = 0;
-	uint64_t iTempSum = 0;
-	uint64_t iCount = 1;
-	scanf_s("%d %d %d",&iFixedPrice,&iVariablePrice,&iSellingPrice);
-	
-	if (  int64_t((iSellingPrice * iCount)- (iVariablePrice*iCount))   < 0)
-	{
-		printf("-1\r\n");
-		
 
-		exit(0);
-	}
-		
-	else {
-		while (1) {
-			iSum = iFixedPrice + (iVariablePrice*iCount);
-			iTempSum = (iSellingPrice*iCount);
-			if (iSum > iTempSum) iCount += 1;
-			else
-			{
-				iCount += 1;
-				break;
-			}
+//#5-1  break-even point (fix)
 
-		}//end of while
-	}
+	int iFixedPrice, iVariablePrice, iSellingPrice;
+	scanf_s("%d %d %d", &iFixedPrice, &iVariablePrice, &iSellingPrice);
+
+	if (iVariablePrice >= iSellingPrice) printf("-1\n");
+	else printf("%d\n", iFixedPrice / (iSellingPrice - iVariablePrice) + 1);
+	return 0;
 
 
-	printf("%ll\r\n", iCount);
 
 }//end of main

@@ -150,7 +150,6 @@ int main()
 	
 	/*210712 OX quiz 
 	https://www.acmicpc.net/problem/8958
-	*/
 
 	unsigned char szArray[CONST_INT_OXQUIZ] = { 0, };
 	int index = 0;
@@ -164,45 +163,82 @@ int main()
 
 	//clear buffer
 	getchar();
-	
+
 	for (volatile int i = 0; i < iCount; ++i)
 	{
-		iSum = 0;
-		while (1)
-		{
-			szArray[index++] = getchar();
-			//scanf_s("%c", &szArray[index++]);
-			if (szArray[index - 1] == '\n') break;
-		}//end of while
+	iSum = 0;
+	while (1)
+	{
+	szArray[index++] = getchar();
+	//scanf_s("%c", &szArray[index++]);
+	if (szArray[index - 1] == '\n') break;
+	}//end of while
 
 
-		
-		for (volatile int j = 0; ; j++)
-		{
 
-			if (cMatching_O == szArray[j]) {
-				iTempSum += 1;
-				continue;
-			}//end of if
-			else { 
-				
-				for (volatile int m = 0; m < iTempSum; ++m)	{
-					iSum += (m+1);
-				}
-				iTempSum = 0;
-				index = 0;
-				
-			}//end of else
+	for (volatile int j = 0; ; j++)
+	{
+
+	if (cMatching_O == szArray[j]) {
+	iTempSum += 1;
+	continue;
+	}//end of if
+	else {
+
+	for (volatile int m = 0; m < iTempSum; ++m)	{
+	iSum += (m+1);
+	}
+	iTempSum = 0;
+	index = 0;
+
+	}//end of else
 
 
-			if (szArray[j] == '\n') break;
+	if (szArray[j] == '\n') break;
 
-		}//end of j
+	}//end of j
 
-		printf("[%d] , %d \r\n",i+1,iSum);
+	printf("[%d] , %d \r\n",i+1,iSum);
 
 	}//end of for i
+	*/
 
 	
+   /* #5. 210712 손익분기점 Calculate break-even point
+   https://www.acmicpc.net/problem/1712
+   */
+	
+	uint64_t iFixedPrice = 0;
+	uint64_t iVariablePrice = 0;
+	uint64_t iSellingPrice = 0;
+	uint64_t iSum = 0;
+	uint64_t iTempSum = 0;
+	uint64_t iCount = 1;
+	scanf_s("%d %d %d",&iFixedPrice,&iVariablePrice,&iSellingPrice);
+	
+	if (  int64_t((iSellingPrice * iCount)- (iVariablePrice*iCount))   < 0)
+	{
+		printf("-1\r\n");
+		
 
-}//end of while
+		exit(0);
+	}
+		
+	else {
+		while (1) {
+			iSum = iFixedPrice + (iVariablePrice*iCount);
+			iTempSum = (iSellingPrice*iCount);
+			if (iSum > iTempSum) iCount += 1;
+			else
+			{
+				iCount += 1;
+				break;
+			}
+
+		}//end of while
+	}
+
+
+	printf("%ll\r\n", iCount);
+
+}//end of main

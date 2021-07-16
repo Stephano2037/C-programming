@@ -241,7 +241,7 @@ int main()
    printf("%ll\r\n", iCount);
    */
 
-//#5-1  break-even point (fix)
+/*#5-1  break-even point (fix)
 
 	int iFixedPrice, iVariablePrice, iSellingPrice;
 	scanf_s("%d %d %d", &iFixedPrice, &iVariablePrice, &iSellingPrice);
@@ -249,7 +249,44 @@ int main()
 	if (iVariablePrice >= iSellingPrice) printf("-1\n");
 	else printf("%d\n", iFixedPrice / (iSellingPrice - iVariablePrice) + 1);
 	return 0;
+	*/
 
 
+/* #6 
+  21 07 16
+sorting simple
+
+*/
+	int* pArray = nullptr;
+	//int* pCompareArray = nullptr;
+	int index = 0;
+
+	int iCount = 0;
+	int iFoundNum = 0;
+	int iMax = -1;
+
+
+	cin >> iCount;
+
+	pArray = (int*)malloc(sizeof(int)*iCount);
+//	pCompareArray = (int*)malloc(sizeof(int)*iCount);
+
+	for (volatile int i = 0; i < iCount; ++i)
+	{
+		cin >> pArray[i];
+	}//end of for i 
+
+
+
+	for (volatile int i = 0; i < iCount; ++i)
+	{
+		if (iMax < pArray[i]) { iMax = pArray[i], index = i; };
+	}
+
+	printf("index: [%d]  Max: %d\r\n",index+1,iMax);
+
+
+	free(pArray);
+	//free(pCompareArray);
 
 }//end of main

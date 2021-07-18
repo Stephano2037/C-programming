@@ -8,6 +8,8 @@ https://www.acmicpc.net/problemset
 
 using namespace std;
 
+#define SWAP (x,y) ((temp=x) (y=temp) (x=y));
+
 
 const int CONST_INT_OXQUIZ = 79;
 
@@ -47,6 +49,41 @@ int checkSameDelta(int num)
 }//end of checkSameDelta
 
 
+
+void quickSort(int *pArray, int leftindex,int rightindex)
+{
+	if (leftindex >= rightindex) return ;
+
+	int iPivot = (leftindex + rightindex) / 2;
+	int iLeftidx = leftindex;
+	int iRightidx = rightindex;
+
+
+
+
+	while (iLeftidx<iRightidx) 
+	{
+		while (pArray[iLeftidx] < pArray[iPivot]) iLeftidx++;
+		while (pArray[iRightidx] > pArray[iPivot]) iRightidx--;
+
+
+		if (iLeftidx <= iRightidx) {
+			swap(pArray[iLeftidx],pArray[iRightidx]);
+			++iLeftidx;
+			--iRightidx;
+		}//end of if
+
+	}//end of while
+
+
+
+
+	quickSort(pArray,leftindex, iRightidx);
+	quickSort(pArray, iLeftidx,rightindex);
+
+	
+
+}//end of quicksort
 
 
 int main()
@@ -255,38 +292,53 @@ int main()
 /* #6 
   21 07 16
 sorting simple
+int* pArray = nullptr;
+//int* pCompareArray = nullptr;
+int index = 0;
 
-*/
-	int* pArray = nullptr;
-	//int* pCompareArray = nullptr;
-	int index = 0;
-
-	int iCount = 0;
-	int iFoundNum = 0;
-	int iMax = -1;
+int iCount = 0;
+int iFoundNum = 0;
+int iMax = -1;
 
 
-	cin >> iCount;
+cin >> iCount;
 
-	pArray = (int*)malloc(sizeof(int)*iCount);
+pArray = (int*)malloc(sizeof(int)*iCount);
 //	pCompareArray = (int*)malloc(sizeof(int)*iCount);
 
-	for (volatile int i = 0; i < iCount; ++i)
+for (volatile int i = 0; i < iCount; ++i)
+{
+cin >> pArray[i];
+}//end of for i
+
+
+
+for (volatile int i = 0; i < iCount; ++i)
+{
+if (iMax < pArray[i]) { iMax = pArray[i], index = i; };
+}
+
+printf("index: [%d]  Max: %d\r\n",index+1,iMax);
+
+
+free(pArray);
+*/
+	
+/* 
+#7 210718 quick sort
+*/
+	const int iLength = 9;
+
+	int iArray[iLength] = {1,9,7,5,4,10,2,8,1};
+
+
+	quickSort(iArray,0,iLength-1);
+
+
+	for (volatile int i=0;i<iLength;++i)
 	{
-		cin >> pArray[i];
-	}//end of for i 
+		printf("%d\r\n",iArray[i]);
+	}//end of for i
 
-
-
-	for (volatile int i = 0; i < iCount; ++i)
-	{
-		if (iMax < pArray[i]) { iMax = pArray[i], index = i; };
-	}
-
-	printf("index: [%d]  Max: %d\r\n",index+1,iMax);
-
-
-	free(pArray);
-	//free(pCompareArray);
 
 }//end of main

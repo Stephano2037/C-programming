@@ -21,6 +21,10 @@ typedef struct {
 
 
 
+
+
+
+
 int checkSameDelta(int num)
 {
 	int iNum = 0;
@@ -84,6 +88,94 @@ void quickSort(int *pArray, int leftindex,int rightindex)
 	
 
 }//end of quicksort
+
+
+
+
+
+const int iWholeComputerCount = 10;
+typedef struct Node_Virus_GraphType {
+	int m_iAdjVertex;
+	int m_iAdjMatrix[iWholeComputerCount][iWholeComputerCount];
+
+};
+
+typedef struct Node_Virus {
+	int iNum;
+	Node_Virus* pNext;
+};
+
+
+void insertNodeVirus(Node_Virus_GraphType* pNvgraph, int computer_index,int computer_index2)
+{
+
+	pNvgraph->m_iAdjMatrix[computer_index][computer_index2] = 1;
+
+}//end of insertNodeVirus
+
+void checkVirusNode(Node_Virus_GraphType* pNvgraph,Node_Virus* pHead, int* pInfectComputerCnt)
+{
+	int iFoundinfectNode = 0;
+
+
+	const int iConstValue = pNvgraph->m_iAdjVertex;
+
+	bool bMatrixPath[iWholeComputerCount][iWholeComputerCount] = {false,};
+
+	Node_Virus* pTemp = pHead;
+
+	for (volatile int j = 1; j <= iConstValue; ++j)
+	{
+		if (pNvgraph->m_iAdjMatrix[pHead->iNum][j]) 
+		{
+			Node_Virus* Temp = (Node_Virus*)malloc(sizeof(Node_Virus));
+			pTemp->pNext = Temp;
+			pTemp = pTemp->pNext;
+			pTemp->iNum = j;
+			
+			
+
+			bMatrixPath[pHead->iNum][j] = true;
+			bMatrixPath[j][pHead->iNum] = true;
+
+			(*pInfectComputerCnt) += 1;
+
+		}//end of if
+	}//end of for j
+
+	pTemp->pNext = nullptr;
+
+	pTemp = pHead;
+
+	if (pTemp!=nullptr) pTemp = pTemp->pNext;
+
+	while (1) {
+		//for (volatile int i = pTemp->iNum; ; ++i)
+		{
+			for (volatile int j = 1; j <= iConstValue; ++j)
+			{
+				if ((pTemp->iNum == j)) continue;
+				
+				if (pNvgraph->m_iAdjMatrix[pTemp->iNum][j] && bMatrixPath[pTemp->iNum][j] == false)
+				{
+					(*pInfectComputerCnt) += 1;
+					bMatrixPath[pTemp->iNum][j] = true;
+					bMatrixPath[j][pTemp->iNum] = true;
+				}
+					
+
+			}//end of for j
+
+			pTemp = pTemp->pNext;
+
+			if (pTemp == nullptr) break;
+
+		}//end of for i
+	}//end of while
+
+
+
+}//end of checkVirusNodefunction
 
 
 int main()
@@ -326,19 +418,87 @@ free(pArray);
 	
 /* 
 #7 210718 quick sort
+const int iLength = 9;
+
+int iArray[iLength] = {1,9,7,5,4,10,2,8,1};
+
+
+quickSort(iArray,0,iLength-1);
+
+
+for (volatile int i=0;i<iLength;++i)
+{
+printf("%d\r\n",iArray[i]);
+}//end of for i
+
+
 */
-	const int iLength = 9;
 
-	int iArray[iLength] = {1,9,7,5,4,10,2,8,1};
+/*
+#8 210721 warm virus
+https://www.acmicpc.net/problem/2606
+*/
 
 
-	quickSort(iArray,0,iLength-1);
+	
+	
+	int iCount_Computer = 0;
+	int iCount_Pair = 0;
+	int iInfectComputer = 0;
+	Node_Virus_GraphType* pNodeArray = (Node_Virus_GraphType*)malloc(sizeof(Node_Virus_GraphType));
+	
 
+	memset(pNodeArray,0,sizeof(pNodeArray));
 
-	for (volatile int i=0;i<iLength;++i)
+	for(volatile int i=0;i<iWholeComputerCount;++i)
+		for (volatile int j = 0; j < iWholeComputerCount; ++j)
+		{
+			pNodeArray->m_iAdjMatrix[i][j] = 0;
+		}//end of for j
+	Node_Virus * pNodeHead = (Node_Virus*)malloc(sizeof(Node_Virus));
+	pNodeHead->iNum = 1;
+	pNodeHead->pNext = nullptr;
+
+	scanf_s("%d",&iCount_Computer);
+
 	{
-		printf("%d\r\n",iArray[i]);
+		pNodeArray->m_iAdjVertex = iCount_Computer;
 	}//end of for i
 
 
+	scanf_s("%d",&iCount_Pair);
+
+	while (iCount_Pair)
+	{
+		int iComputer_idx, iComputer_idx2=0;
+		scanf_s("%d %d",&iComputer_idx,&iComputer_idx2);
+		if (iComputer_idx == iComputer_idx2) continue;
+
+		else 
+		{
+			insertNodeVirus(pNodeArray, iComputer_idx, iComputer_idx2);
+			
+			--iCount_Pair;
+		}//end of else
+	}//end of while ,iCount_pair
+
+
+	checkVirusNode(pNodeArray,pNodeHead, &iInfectComputer);
+
+
+
+	//1은 포함하지 않아야함
+	printf("infect computer cnt: [%d]\r\n",iInfectComputer-1);
+
+
+		if(pNodeArray!=nullptr)
+			free(pNodeArray);
+	
+		if (pNodeHead) 
+		{
+			free(pNodeHead);
+		}
+
 }//end of main
+
+
